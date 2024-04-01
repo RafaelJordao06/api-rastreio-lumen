@@ -16,3 +16,7 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->group(['prefix' => 'track'], function () use ($router) {
+    $router->get('/{trackingCode}', 'TrackControllers\TrackController@buscarEncomenda');
+});
